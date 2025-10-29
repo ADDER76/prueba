@@ -1,0 +1,207 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SIE – Sistema de Información Electrónica</title>
+<style>
+  :root{
+    --bg: #ffffff;
+    --panel: #e6e6e6;
+    --text: #3a3a3a;
+    --brand: #c97b3e;   /* naranja */
+    --band-blue: #7fa3bf;
+    --band-blue-dark:#6e90ab;
+    --link:#cc6b27;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    color:var(--text);
+    background: var(--bg);
+  }
+
+  /* Layout principal */
+  .wrap{
+    max-width: 980px;
+    margin: 24px auto 40px;
+    padding: 0 16px;
+    position: relative;
+  }
+
+  /* Logos arriba a la izquierda y derecha */
+  .top{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    gap:16px;
+  }
+  .logo-left{
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo-box{
+    width:56px; height:40px; border-radius:6px;
+    background:#f0f0f0; border:1px solid #dadada;
+    display:grid; place-items:center; font-weight:bold; color:#999;
+  }
+  .brand-title{
+    line-height:1.1;
+    font-size:14px;
+  }
+
+  .seal-group{
+    display:flex; align-items:center; gap:16px;
+  }
+  .seal{
+    width:64px; height:64px; border-radius:50%;
+    border:2px solid #e9e1d8;
+    display:grid; place-items:center; color:#c07a3a; font-weight:bold;
+    font-size:12px;
+  }
+
+  h1{
+    font-size:18px; margin:24px 0 8px;
+  }
+
+  .req{
+    font-size:12px; color:#444; max-width:520px;
+  }
+  .req a{color:var(--link); text-decoration:none}
+  .req a:hover{text-decoration:underline}
+
+  /* Bandas decorativas (naranja/azul) como en el screenshot */
+  .bands{
+    margin:18px 0 0;
+    position:relative;
+    height:260px;
+    overflow:visible;
+  }
+  .band-orange{
+    height:42px;
+    background: #e7b089;
+    border-top:1px solid #e2a27a;
+    border-bottom:1px solid #d99a73;
+  }
+  .band-blue{
+    height:218px;
+    background: linear-gradient(180deg,var(--band-blue) 0%, var(--band-blue-dark) 100%);
+    position:relative;
+    overflow:hidden;
+  }
+  /* cuadrícula ligera en la banda azul */
+  .band-blue::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(#ffffff33 1px, transparent 1px) 0 0/ 48px 48px,
+      linear-gradient(90deg,#ffffff33 1px, transparent 1px) 0 0/ 48px 48px;
+    pointer-events:none;
+    opacity:.45;
+  }
+
+  /* Panel de login */
+  .login{
+    position:absolute;
+    left:50%;
+    top: -10px;              /* sobresale un poco sobre la banda naranja */
+    transform:translateX(-50%);
+    width: 360px;
+    background: var(--panel);
+    border: 2px solid #d7d7d7;
+    padding: 16px 18px 18px;
+    box-shadow: 0 2px 0 #d0d0d0;
+  }
+  .login h2{
+    text-align:center; font-size:14px; font-weight:bold; margin:4px 0 10px;
+  }
+  .field{
+    background:#fff; border:1px solid #cfcfcf;
+    height:28px; border-radius:2px;
+    display:block; width:100%;
+    padding: 0 10px; outline:none;
+  }
+  .field + .field{ margin-top:14px; }
+  .btn{
+    display:block; margin:12px auto 0;
+    background:#707070; color:#fff; border:none;
+    padding:6px 22px; font-weight:bold; border-radius:2px;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.2);
+    cursor:pointer;
+  }
+  .btn:active{ transform: translateY(1px); box-shadow:none; }
+
+  .forgot{
+    text-align:center; margin-top:12px; font-size:12px;
+  }
+  .forgot a{ color:var(--link); text-decoration:none }
+  .forgot a:hover{ text-decoration:underline }
+
+  /* Badges tienda */
+  .stores{
+    margin: 28px auto 0;
+    display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+  }
+  .store-badge{
+    width:230px; height:56px; border:1px solid #d8d8d8; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px; color:#444; background:#fff;
+  }
+
+  /* Responsivo */
+  @media (max-width: 520px){
+    .login{ width: 92vw; }
+    .req{ max-width: none }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Cabecera con logos -->
+    <div class="top">
+      <div class="logo-left">
+        <div class="logo-box">SIE</div>
+        <div class="brand-title">
+          <strong>SISTEMA DE<br>INFORMACIÓN</strong><br>
+          electrónica v4.0
+        </div>
+      </div>
+      <div class="seal-group">
+        <div class="seal">UAT</div>
+        <div class="seal">SIE</div>
+      </div>
+    </div>
+
+    <h1>Bienvenido(a) al SIE</h1>
+    <div class="req">
+      <strong>Requerimientos:</strong><br>
+      Mozilla Firefox actualizado. Si no cuentas con él, <a href="#">descárgalo aquí</a>,<br>
+      o Safari actualizado incluido en MacOS 10.14.6,<br>
+      o Google Chrome. Si no cuentas con él <a href="#">descárgalo aquí</a>.
+    </div>
+
+    <!-- Bandas decorativas y el panel de login centrado -->
+    <div class="bands">
+      <div class="band-orange"></div>
+      <div class="band-blue">
+        <form class="login" onsubmit="event.preventDefault()">
+          <h2>Usuario</h2>
+          <input class="field" type="text" placeholder="">
+          <h2 style="margin-top:12px;">Contraseña</h2>
+          <input class="field" type="password" placeholder="">
+          <button class="btn" type="submit">Entrar</button>
+          <div class="forgot"><a href="#">¿Olvidaste tu contraseña?</a></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Badges de tienda (placeholders) -->
+    <div class="stores">
+      <div class="store-badge">DISPONIBLE EN Google Play</div>
+      <div class="store-badge">Disponible en App Store</div>
+    </div>
+  </div>
+</body>
+</html>
